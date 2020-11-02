@@ -1,26 +1,29 @@
 package cinema;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Cinema {
 
     public static void main(String[] args) {
-        String[][] myArray = {
-                {"Cinema:"},
-                {" ", "1", "2", "3", "4", "5", "6", "7", "8"},
-                {"1", "S", "S", "S", "S", "S", "S", "S", "S"},
-                {"2", "S", "S", "S", "S", "S", "S", "S", "S"},
-                {"3", "S", "S", "S", "S", "S", "S", "S", "S"},
-                {"4", "S", "S", "S", "S", "S", "S", "S", "S"},
-                {"5", "S", "S", "S", "S", "S", "S", "S", "S"},
-                {"6", "S", "S", "S", "S", "S", "S", "S", "S"},
-                {"7", "S", "S", "S", "S", "S", "S", "S", "S"}
-        };
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < myArray.length; i++)
-            System.out.println(Arrays.toString(myArray[i])
-                    .replace("[", "")
-                    .replace("]", "")
-                    .replace(",", ""));
+        System.out.println("Enter the number of rows:");
+        int rows = scanner.nextInt();
+        System.out.println("Enter the number of seats in each rows:");
+        int seatsInEachRow = scanner.nextInt();
+
+        int seats = rows * seatsInEachRow;
+        int income = 0;
+
+        if (seats <= 60) {
+            income = seats * 10;
+        } else if (seats > 60 && rows % 2 == 0) {
+            income = (seats / 2) * 10 + (seats / 2) * 8;
+        } else if (seats > 60 && rows % 2 == 1) {
+            int frontRows = (rows - 1) / 2;
+            int backRows = (rows + 1) / 2;
+            income = frontRows * seatsInEachRow * 10 + backRows * seatsInEachRow * 8;
+        }
+        System.out.println("Total income:" + "\n" + "$" + income);
     }
 }
