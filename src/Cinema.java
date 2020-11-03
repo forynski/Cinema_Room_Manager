@@ -12,18 +12,17 @@ public class Cinema {
         System.out.println("Enter the number of seats in each rows:");
         int seatsInEachRow = scanner.nextInt();
 
-        int seats = rows * seatsInEachRow;
-        int income = 0;
+        int[][] myArray = new int[rows][seatsInEachRow];
 
-        if (seats <= 60) {
-            income = seats * 10;
-        } else if (seats > 60 && rows % 2 == 0) {
-            income = (seats / 2) * 10 + (seats / 2) * 8;
-        } else if (seats > 60 && rows % 2 == 1) {
-            int frontRows = (rows - 1) / 2;
-            int backRows = (rows + 1) / 2;
-            income = frontRows * seatsInEachRow * 10 + backRows * seatsInEachRow * 8;
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < seatsInEachRow; j++)
+                myArray[i][j] = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < seatsInEachRow; j++) {
+                System.out.print(myArray[i][j]);
+            }
+            System.out.println();
         }
-        System.out.println("Total income:" + "\n" + "$" + income);
     }
 }
