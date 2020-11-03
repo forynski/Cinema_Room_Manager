@@ -1,5 +1,6 @@
 package cinema;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Cinema {
@@ -10,19 +11,25 @@ public class Cinema {
         System.out.println("Enter the number of rows:");
         int rows = scanner.nextInt();
         System.out.println("Enter the number of seats in each rows:");
-        int seatsInEachRow = scanner.nextInt();
+        int cols = scanner.nextInt();
 
-        int[][] myArray = new int[rows][seatsInEachRow];
+        int[][] myArray = new int[rows][cols];
 
         for (int i = 0; i < rows; i++)
-            for (int j = 0; j < seatsInEachRow; j++)
+            for (int j = 0; j < cols; j++)
                 myArray[i][j] = 0;
 
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < seatsInEachRow; j++) {
-                System.out.print(myArray[i][j]);
+            for (int j = 0; j < cols; j++) {
+                myArray[i][0] = i;
+                myArray[0][j] = j;
             }
-            System.out.println();
         }
+        for (int i = 0; i < myArray.length; i++)
+            System.out.println(Arrays.toString(myArray[i])
+                    .replace("[", "")
+                    .replace("]", "")
+                    .replace(",", ""));
+
     }
 }
