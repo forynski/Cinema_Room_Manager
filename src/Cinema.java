@@ -9,12 +9,15 @@ public class Cinema {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter the number of rows:");
-        int rows = scanner.nextInt();
+        int r = scanner.nextInt();
         System.out.println("Enter the number of seats in each rows:");
-        int cols = scanner.nextInt();
+        int c = scanner.nextInt();
+
+        int rows = r + 1;
+        int cols = c + 1;
 
         int[][] myArray = new int[rows][cols];
-        
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 myArray[i][0] = i;
