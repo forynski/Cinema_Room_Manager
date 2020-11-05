@@ -19,21 +19,25 @@ public class Cinema {
             }
         }
 
-        int menu = getMenu(scanner);
+        int menu;
 
-        switch (menu) {
-            case 1:
-                render(room);
-                getMenu(scanner);
-            case 2:
-                booking(scanner, rows, seats, room);
-                getMenu(scanner);
-            case 0:
-                System.out.println("Exiting...");
-                break;
-            default:
-                System.out.println("Incorrect selection, please try again!");
-        }
+        do {
+            menu = getMenu(scanner);
+            switch (menu) {
+                case 1:
+                    render(room);
+                    break;
+                case 2:
+                    booking(scanner, rows, seats, room);
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Incorrect selection, please try again!");
+                    break;
+            }
+        } while (menu != 0);
     }
 
     public static int getMenu(Scanner scanner) {
