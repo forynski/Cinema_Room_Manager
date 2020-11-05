@@ -11,27 +11,6 @@ public class Cinema {
         System.out.println("Enter the number of seats in each row:");
         int seats = scanner.nextInt() + 1;
 
-        System.out.println("1. Show the seats");
-        System.out.println("2. Buy a ticket");
-        System.out.println("3. Exit");
-        int menu = scanner.nextInt();
-
-        switch (menu) {
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            default:
-                System.out.println("Incorrect selection, please try again!");
-        }
-
-
-
         char[][] room = new char[rows][seats];
 
         for (int i = 0; i < rows; i++) {
@@ -40,9 +19,27 @@ public class Cinema {
             }
         }
 
-        render(room);
-        System.out.println();
+        System.out.println("1. Show the seats");
+        System.out.println("2. Buy a ticket");
+        System.out.println("3. Exit");
+        int menu = scanner.nextInt();
 
+        switch (menu) {
+            case 1:
+                render(room);
+                break;
+            case 2:
+                booking(scanner, rows, seats, room);
+                break;
+            case 0:
+                System.out.println("Exiting...");
+                break;
+            default:
+                System.out.println("Incorrect selection, please try again!");
+        }
+    }
+
+    public static void booking(Scanner scanner, int rows, int seats, char[][] room) {
         System.out.println("Enter a row number:");
         int row = scanner.nextInt();
         System.out.println("" + "Enter a seat number in that row:");
