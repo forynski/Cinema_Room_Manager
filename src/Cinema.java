@@ -19,24 +19,28 @@ public class Cinema {
             }
         }
 
-        System.out.println("1. Show the seats");
-        System.out.println("2. Buy a ticket");
-        System.out.println("3. Exit");
-        int menu = scanner.nextInt();
+        int menu = getMenu(scanner);
 
         switch (menu) {
             case 1:
                 render(room);
-                break;
+                getMenu(scanner);
             case 2:
                 booking(scanner, rows, seats, room);
-                break;
+                getMenu(scanner);
             case 0:
                 System.out.println("Exiting...");
                 break;
             default:
                 System.out.println("Incorrect selection, please try again!");
         }
+    }
+
+    public static int getMenu(Scanner scanner) {
+        System.out.println("1. Show the seats");
+        System.out.println("2. Buy a ticket");
+        System.out.println("0. Exit");
+        return scanner.nextInt();
     }
 
     public static void booking(Scanner scanner, int rows, int seats, char[][] room) {
