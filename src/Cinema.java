@@ -30,6 +30,8 @@ public class Cinema {
                 case 2:
                     booking(scanner, rows, seats, room);
                     break;
+                case 3:
+
                 case 0:
                     System.out.println("Exiting...");
                     break;
@@ -43,6 +45,7 @@ public class Cinema {
     public static int getMenu(Scanner scanner) {
         System.out.println("1. Show the seats");
         System.out.println("2. Buy a ticket");
+        System.out.println("3. Statistics");
         System.out.println("0. Exit");
         return scanner.nextInt();
     }
