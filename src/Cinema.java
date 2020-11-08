@@ -6,16 +6,11 @@ public class Cinema {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int rows;
-        int seats;
-        String[][] cinema;
-
         System.out.println("Enter the number of rows:");
-        rows = scanner.nextInt();
+        int rows = scanner.nextInt();
         System.out.println("Enter the number of seats in each row:");
-        seats = scanner.nextInt();
-
-        cinema = new String[rows][seats];
+        int seats = scanner.nextInt();
+        String[][] cinema = new String[rows][seats];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < seats; j++) {
@@ -36,16 +31,17 @@ public class Cinema {
                     showStatistics(cinema);
                     break;
                 case 0:
+                    System.out.println("Exiting...");
                     return;
                 default:
-                    System.out.println("Wrong input!");
+                    System.out.println("Incorrect selection, please try again!");
                     break;
             }
         }
     }
 
     public static void showMenu() {
-        System.out.println("\n1. Show the seats");
+        System.out.println("1. Show the seats");
         System.out.println("2. Buy a ticket");
         System.out.println("3. Statistics");
         System.out.println("0. Exit");
@@ -121,11 +117,9 @@ public class Cinema {
 
         percentage = (double) purchasedTickets / (cinema.length * cinema[0].length) * 100;
 
-        System.out.println("\nNumber of purchased tickets: " + purchasedTickets);
+        System.out.println("Number of purchased tickets: " + purchasedTickets);
         System.out.printf("Percentage: %.2f%%\n", percentage);
         System.out.println("Current income: $" + currentInc);
         System.out.println("Total income: $" + totalInc);
     }
 }
-    
-
