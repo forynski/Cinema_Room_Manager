@@ -31,7 +31,11 @@ public class Cinema {
                     booking(scanner, rows, seats, room);
                     break;
                 case 3:
-
+                    System.out.println("Number of purchased tickets: ");
+                    System.out.println("Percentage: ");
+                    System.out.println("Current income: ");
+                    System.out.println("Total income: ");
+                    break;
                 case 0:
                     System.out.println("Exiting...");
                     break;
